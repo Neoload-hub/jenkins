@@ -3,24 +3,24 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-               // bat "rmdir  /s /q Jenkins"
-                bat "git clone https://github.com/Neoload-hub/jenkins.git"
-                bat "mvn clean -f jenkins"
+               // sh "rmdir  /s /q Jenkins"
+                sh "git clone https://github.com/Neoload-hub/jenkins.git"
+                sh "mvn clean -f jenkins"
             }
         }
         stage('install') {
             steps {
-                bat "mvn install -f Jenkins"
+                sh "mvn install -f Jenkins"
             }
         }
         stage('test') {
             steps {
-                bat "mvn test -f Jenkins"
+                sh "mvn test -f Jenkins"
             }
         }
         stage('package') {
             steps {
-                bat "mvn package -f Jenkins"
+                sh "mvn package -f Jenkins"
             }
         }
     }
