@@ -1,26 +1,26 @@
 pipeline {
     agent any
+
     stages {
-        stage('git repo & clean') {
-            steps {
-               sh "rmdir  /s /q Jenkins"
-                sh "git clone https://github.com/Neoload-hub/jenkins.git"
-                sh "mvn clean -f jenkins"
+        stage('Build')
+        {
+            steps
+            {
+                echo 'Building..'
             }
         }
-        stage('install') {
-            steps {
-                sh "mvn install -f Jenkins"
+        stage('Test')
+        {
+            steps
+            {
+                echo 'Testing..'
             }
         }
-        stage('test') {
-            steps {
-                sh "mvn test -f Jenkins"
-            }
-        }
-        stage('package') {
-            steps {
-                sh "mvn package -f Jenkins"
+        stage('Deploy')
+        {
+            steps
+            {
+                echo 'Deploying....'
             }
         }
     }
