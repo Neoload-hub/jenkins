@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-               // sh "rmdir  /s /q Jenkins"
+               sh "rmdir  /s /q Jenkins"
                 sh "git clone https://github.com/Neoload-hub/jenkins.git"
                 sh "mvn clean -f jenkins"
             }
